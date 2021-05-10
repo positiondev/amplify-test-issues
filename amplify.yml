@@ -1,0 +1,27 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - yarn install
+    build:
+      commands:
+        - yarn run next build && yarn run next export
+  artifacts:
+    baseDirectory: ./out
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+test:
+  artifacts:
+    baseDirectory: test-results
+    configFilePath: "**/mochawesome.json"
+  phases:
+    preTest:
+      commands:
+        - yarn install
+    test:
+      commands:
+        - 'yarn run mocha --reporter mochawesome --reporter-options "reportDir=test-results/report,overwrite=true,html=false,json=true"'
