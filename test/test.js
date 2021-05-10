@@ -4,7 +4,7 @@ describe('String Reversal', () => {
         it('should reverse a string', () => {
             const string = "This is a string."
             let reversedString = string.split('').reverse().join('')
-            assert.equal(reversedString, ".gnirts a si sihT" )
+            assert.equal(reversedString, ".FAILINGgnirts a si sihT" )
         })
     })
 })
