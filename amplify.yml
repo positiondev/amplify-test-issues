@@ -25,3 +25,6 @@ test:
     test:
       commands:
         - 'yarn run mocha --reporter mochawesome --reporter-options "reportDir=test-results/report,overwrite=true,html=false,json=true"'
+    postTest:
+      commands:
+        - echo "force amplify to check for test failures"
